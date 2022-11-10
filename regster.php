@@ -20,7 +20,22 @@
         <label>パスワード: <input type="password" name="password"/></label><br/>
         <label>名前: <input type="text" name="name"/></label><br/>
         <input type="submit" value="新規登録">
-    </form>
+    </form>   
 </div>
 </body>
+<?php
+
+// ドライバ呼び出しを使用して MySQL データベースに接続します
+$dsn = 'mysql:dbname=shop;host=127.0.0.1';
+$user = 'board';
+$password = 'boardpw';
+
+try {
+    $dbh = new PDO($dsn, $user, $password);
+    echo "接続成功\n";
+} catch (PDOException $e) {
+    echo "接続失敗: " . $e->getMessage() . "\n";
+    exit();
+}
+?>
 </html>
